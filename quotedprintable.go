@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"io"
 
-	"gopkg.in/alexcesaro/quotedprintable.v1/internal"
+	"gopkg.in/alexcesaro/quotedprintable.v2/internal"
 )
 
 // Encode encodes src into at most MaxEncodedLen(len(src)) bytes to dst,

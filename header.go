@@ -16,7 +16,7 @@ import (
 	"sync"
 	"unicode/utf8"
 
-	"gopkg.in/alexcesaro/quotedprintable.v1/internal"
+	"gopkg.in/alexcesaro/quotedprintable.v2/internal"
 )
 
 // Encoding represents the encoding used in encoded-words. It must be one of the
@@ -51,17 +51,14 @@ func (enc Encoding) NewHeaderEncoder(charset string) *HeaderEncoder {
 	return &HeaderEncoder{charset, enc, splitWords}
 }
 
-// Encode encodes a string to be used as a MIME header value. It encodes
-// the input only if it contains non-ASCII characters.
+// Encode encodes a string to be used as a MIME header value.
 func (e *HeaderEncoder) Encode(s string) string {
-	if !needsEncoding(s) {
-		return s
-	}
-
 	return e.encodeWord(s)
 }
 
-func needsEncoding(s string) bool {
+// NeedsEncoding returns whether the given header content needs to be encoded
+// into an encoded-words.
+func NeedsEncoding(s string) bool {
 	for i := 0; i < len(s); i++ {
 		b := s[i]
 		if (b > '~' || b < ' ') && b != '\t' {

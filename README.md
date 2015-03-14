@@ -17,4 +17,4 @@ Some links:
 
 ## Documentation
 
-https://godoc.org/gopkg.in/alexcesaro/quotedprintable.v1
+https://godoc.org/gopkg.in/alexcesaro/quotedprintable.v2

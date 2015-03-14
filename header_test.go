@@ -15,7 +15,7 @@ func ExampleEncodeHeader() {
 	fmt.Println(enc.Encode("Coffee"))
 	fmt.Println(enc.Encode("Café"))
 	// Output:
-	// Coffee
+	// =?UTF-8?Q?Coffee?=
 	// =?UTF-8?Q?Caf=C3=A9?=
 }
 
@@ -45,7 +45,7 @@ func TestEncodeHeader(t *testing.T) {
 		{utf8, Q, "François-Jérôme", "=?UTF-8?Q?Fran=C3=A7ois-J=C3=A9r=C3=B4me?="},
 		{utf8, B, "André", "=?UTF-8?B?QW5kcsOp?="},
 		{iso88591, Q, "Rapha\xebl Dupont", "=?iso-8859-1?Q?Rapha=EBl_Dupont?="},
-		{utf8, Q, "A", "A"},
+		{utf8, Q, "A", "=?UTF-8?Q?A?="},
 		{utf8, Q, "An 'encoded-word' may not be more than 75 characters long, including 'charset', 'encoding', 'encoded-text', and delimiters. ©", "=?UTF-8?Q?An_'encoded-word'_may_not_be_more_than_75_characters_long,_incl?=\r\n =?UTF-8?Q?uding_'charset',_'encoding',_'encoded-text',_and_delimiters._?=\r\n =?UTF-8?Q?=C2=A9?="},
 		{utf8, Q, strings.Repeat("0", 62) + "é", "=?UTF-8?Q?" + strings.Repeat("0", 62) + "?=\r\n =?UTF-8?Q?=C3=A9?="},
 		{utf8, B, strings.Repeat("é", 23), "=?UTF-8?B?w6nDqcOpw6nDqcOpw6nDqcOpw6nDqcOpw6nDqcOpw6nDqcOpw6nDqcOpw6k=?=\r\n =?UTF-8?B?w6k=?="},
