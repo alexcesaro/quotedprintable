@@ -5,16 +5,12 @@
 Package quotedprintable implements quoted-printable and message header encoding
 as specified by RFC 2045 and RFC 2047.
 
-It is similar to the package currently being developed in the standard library: https://codereview.appspot.com/132680044/
+It is a copy of the Go 1.5 package `mime/quotedprintable`. It also includes
+the new functions of package `mime` concerning RFC 2047.
 
-It requires Go 1.3 or newer.
-
-Some links:
- - [Post on golang-dev](https://groups.google.com/d/topic/golang-dev/PK_ICQNJTmg/discussion)
- - [issue on the bug traker](https://code.google.com/p/go/issues/detail?id=4943)
- - [the former code review](https://codereview.appspot.com/101330049/)
-
+This code has minor changes with the standard library code in order to work
+with Go 1.0 and newer. 
 
 ## Documentation
 
-https://godoc.org/gopkg.in/alexcesaro/quotedprintable.v2
+https://godoc.org/gopkg.in/alexcesaro/quotedprintable.v3
